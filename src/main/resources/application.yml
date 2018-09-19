@@ -15,8 +15,12 @@ spring:
   resources:
     static-locations: classpath:/static/
   thymeleaf:
+    #热部署文件，页面不产生缓存，及时更新
     cache: false
     mode: LEGACYHTML5
+    encoding: utf-8
+    prefix: classpath:/templates/
+    suffix: .html
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://cd-cdb-jcnexl6u.sql.tencentcdb.com:63777/test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
