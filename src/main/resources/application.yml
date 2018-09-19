@@ -1,0 +1,63 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 80
+
+spring:
+  devtools:
+    restart:
+      enabled: false
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://cd-cdb-jcnexl6u.sql.tencentcdb.com:63777/test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: Lishuo123!
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  redis:
+    host: 132.232.87.70
+    database: 1
+    port: 6379
+    password: Lishuo123!
+    timeout: 3s
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-wait: 1ms
+        max-active: 8
+      shutdown-timeout: 100ms
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: cn.toskey.iboot.module.*.model
+  check-config-location: false
+  global-config:
+    refresh: true
+    db-config:
+      id-type: UUID
+      field-strategy: not_empty
+      logic-delete-value: 1
+      logic-not-delete-value: 0
